@@ -1,0 +1,24 @@
+body {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.note {
+    font-family: Arial !important;
+    font-size: 15px !important;
+}
+
+.heading {
+    margin: 0px;
+    width: 100%;
+    border-radius: 0;
+    background-color: rgb(244, 228, 12);
+}
+
+#songName {
+    font-size: 18px;
+    font-family: Arial;
+    color: whitesmoke;
+    border-radius: 2px;
+}
