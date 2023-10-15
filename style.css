@@ -22,3 +22,7 @@ body {
     color: whitesmoke;
     border-radius: 2px;
 }
+
+canvas {
+    margin-top: 80px;
+}
