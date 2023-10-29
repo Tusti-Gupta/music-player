@@ -5,7 +5,9 @@ leftWristY = 0;
 rightWristX = 0;
 rightWristY = 0;
 scoreLeftWrist = 0;
-songStatus = "";    
+scoreRightWrist = 0;
+leftStatus = ""; 
+rightStatus = "";    
 
 function preload() {
     shutDown = loadSound("Blackpink - Shut down.mp3");
@@ -34,13 +36,24 @@ function draw() {
     stroke("#FFOOOO");
 
     if (scoreLeftWrist > 0.2) {
-        songStatus = shutDown.isPlaying();
+        leftStatus = shutDown.isPlaying();
         circle(leftWristX, leftWristY, 20);
         seven.stop();
 
-        if (songStatus = "false") {
+        if (leftStatus = "false") {
             shutDown.play();
             document.getElementById("songName").innerHTML = "SHUTDOWN By BLACKPINK is playing";
+        }
+    }
+
+    if (scoreRightWrist > 0.2) {
+        rightStatus = seven.isPlaying();
+        circle(rightWristX, rightWristY, 20);
+        shutDown.stop();
+
+        if (leftStatus = "false") {
+            seven.play();
+            document.getElementById("songName").innerHTML = "SEVEN By JUNGKOOK from BTS is playing";
         }
     }
 }
@@ -49,6 +62,7 @@ function gotPoses(results) {
     if(results.length > 0) {
         console.log(results);
         scoreLeftWrist = results[0].pose.keypoints[9].score;
+        scoreRightWrist = results[0].pose.keypoints[10].score;
 
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
